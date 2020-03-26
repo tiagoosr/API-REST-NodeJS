@@ -6,7 +6,6 @@ const router = express.Router();
 router.post('/tarefa', async (req, res) => {
     try {
         const tarefa = await Tarefa.create(req.body);
-
         return res.send({ tarefa })
     }
     catch (err) {
@@ -19,7 +18,7 @@ router.get('/tarefa', async (req, res) => {
     const data = await Tarefa.find(req.body, function (err, obj) {
         console.log(obj)
     });
-    return res.send({ data })
+    // return res.send({ data })
 });
 
 router.put('/tarefa/:id', async (req, res) => {
