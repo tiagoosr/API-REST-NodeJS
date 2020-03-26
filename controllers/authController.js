@@ -5,9 +5,9 @@ const router = express.Router();
 
 router.post('/tarefa', async (req, res) => {
     try {
-        const tese = await Tarefa.create(req.body);
+        const tarefa = await Tarefa.create(req.body);
 
-        return res.send({ tese })
+        return res.send({ tarefa })
     }
     catch (err) {
         return res.status(400).send({ error: 'Erro ao cadastrar' })
@@ -16,10 +16,10 @@ router.post('/tarefa', async (req, res) => {
 
 // /:id serve para passar id para o endpoind
 router.get('/tarefa', async (req, res) => {
-    const tese = await Tarefa.find(req.body, function (err, obj) {
+    const data = await Tarefa.find(req.body, function (err, obj) {
         console.log(obj)
     });
-    return res.send({ tese })
+    return res.send({ data })
 });
 
 router.put('/tarefa/:id', async (req, res) => {
