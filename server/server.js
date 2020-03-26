@@ -9,7 +9,7 @@ mongoose.connection.on('error', (error) => {
     console.error("ERRO: " + error.message)
 });
 
-app.set('port', process.env.PORT || 7777);
+app.set('port', process.env.PORT || 3000);
 const server = app.listen(app.get('port'), () => {
     console.log("servidor rodando na porta: " + server.address().port);
 });
