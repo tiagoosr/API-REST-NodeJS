@@ -2,8 +2,8 @@ const app = require('../app');
 const mongoose = require('mongoose');
 
 require('dotenv').config({ path: 'variables.env' })
-
-mongoose.connect(process.env.DATABASE, { useNewUrlParser: true, useUnifiedTopology: true });
+const URI = process.env.DATABASE
+mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = global.Promise; //posso usar promessas
 mongoose.connection.on('error', (error) => {
     console.error("ERRO: " + error.message)
