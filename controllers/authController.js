@@ -14,12 +14,12 @@ router.post('/tarefa', async (req, res) => {
 });
 
 // /:id serve para passar id para o endpoind
-router.get('/tarefa', function (req, res)  {
-    // const tarefas = await Tarefa.find(req.body, function (err, obj) {
-    //     console.log(obj)
-    // });
-     const tarefas = Tarefa.find(req.body)
-    return res.send({ tarefas })
+router.get('/tarefa', function (req, res) {
+    const tarefas = await Tarefa.find(req.body, function (err, obj) {
+        console.log(obj)
+        return res.send({ obj })
+    });
+    
 });
 
 router.put('/tarefa/:id', async (req, res) => {
