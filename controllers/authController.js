@@ -17,9 +17,8 @@ router.post('/tarefa', async (req, res) => {
 router.get('/tarefa', function (req, res) {
     const tarefas = await Tarefa.find(req.body, function (err, obj) {
         console.log(obj)
-        return res.send({ obj })
     });
-    
+    return res.send({ tarefas })
 });
 
 router.put('/tarefa/:id', async (req, res) => {
