@@ -14,7 +14,7 @@ router.post('/tarefa', async (req, res) => {
 });
 
 // /:id serve para passar id para o endpoind
-router.get('/tarefa', function (req, res) {
+router.get('/tarefa', async (req, res) => {
     const tarefas = await Tarefa.find(req.body, function (err, obj) {
         console.log(obj)
     });
