@@ -7,4 +7,4 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
 
 require('./controllers/authController')(app);
-module.exports = app;
+module.exports = app; 
