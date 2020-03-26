@@ -5,8 +5,8 @@ const router = express.Router();
 
 router.post('/tarefa', async (req, res) => {
     try {
-        const tarefa = await Tarefa.create(req.body);
-        return res.send({ tarefa })
+        const tarefas = await Tarefa.create(req.body);
+        return res.send({ tarefas })
     }
     catch (err) {
         return res.status(400).send({ error: 'Erro ao cadastrar' })
@@ -14,16 +14,17 @@ router.post('/tarefa', async (req, res) => {
 });
 
 // /:id serve para passar id para o endpoind
-router.get('/tarefa', async (req, res) => {
-        await Tarefa.find(req.body, function (err, obj) {
-        console.log(obj)
-    });
-    // return res.send({ data })
+router.get('/tarefa', function (req, res)  {
+    // const tarefas = await Tarefa.find(req.body, function (err, obj) {
+    //     console.log(obj)
+    // });
+     const tarefas = Tarefa.find(req.body)
+    return res.send({ tarefas })
 });
 
 router.put('/tarefa/:id', async (req, res) => {
-    const data = await Tarefa.findOneAndUpdate({ _id: req.params.id }, req.body)
-    return res.send({ data })
+    const tarefas = await Tarefa.findOneAndUpdate({ _id: req.params.id }, req.body)
+    return res.send({ tarefas })
 });
 
 module.exports = (app) => app.use(router)
