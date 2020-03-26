@@ -15,7 +15,7 @@ router.post('/tarefa', async (req, res) => {
 
 // /:id serve para passar id para o endpoind
 router.get('/tarefa', async (req, res) => {
-    const data = await Tarefa.find(req.body, function (err, obj) {
+        await Tarefa.find(req.body, function (err, obj) {
         console.log(obj)
     });
     // return res.send({ data })
